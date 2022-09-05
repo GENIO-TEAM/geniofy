@@ -1,9 +1,11 @@
-FROM mhart/alpine-node:12
+FROM mhart/alpine-node:14
 
-COPY . .
+WORKDIR /app
+ADD . .
 
-EXPOSE 8095
-
+RUN apk add --no-cache make gcc g++ python2
 RUN yarn
 RUN yarn build
+
+EXPOSE 8000
 CMD ["yarn", "start"]
