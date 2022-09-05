@@ -1,9 +1,8 @@
-FROM mhart/alpine-node:14
+FROM node:14-alpine
 
 WORKDIR /app
 ADD . .
 
-RUN apk add --no-cache make gcc g++ python2
 RUN yarn
 RUN yarn build
 
